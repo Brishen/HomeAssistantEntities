@@ -62,6 +62,13 @@ public:
      * @brief Defines the resolution of the values, i.e. the step.
      */
     float step = 1.0f;
+
+    /**
+     * @brief Controls how the number input is displayed in the UI.
+     * Can be "auto", "slider", or "box".
+     */
+    enum class Mode { Auto, Slider, Box };
+    Mode mode = Mode::Auto;
   };
 
   inline static Configuration _default = {.min_value = 1.0,
@@ -72,7 +79,8 @@ public:
                                           .retain = false,
                                           .command_template = "{{ value }}",
                                           .value_template = "{{ value }}",
-                                          .step = 1.0f};
+                                          .step = 1.0f,
+                                          .mode = Configuration::Mode::Auto};
 
   /**
    * @brief Construct a new Ha Entity Number object

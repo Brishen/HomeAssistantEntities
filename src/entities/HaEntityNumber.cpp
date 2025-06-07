@@ -41,6 +41,19 @@ void HaEntityNumber::publishConfiguration() {
     doc["value_template"] = _configuration.value_template;
   }
 
+  switch (_configuration.mode) {
+  case HaEntityNumber::Configuration::Mode::Slider:
+    doc["mode"] = "slider";
+    break;
+  case HaEntityNumber::Configuration::Mode::Box:
+    doc["mode"] = "box";
+    break;
+  case HaEntityNumber::Configuration::Mode::Auto:
+  default:
+    doc["mode"] = "auto";
+    break;
+  }
+
   doc["state_topic"] = _ha_bridge.getTopic(HaBridge::TopicType::State, COMPONENT, _object_id);
   doc["command_topic"] = _ha_bridge.getTopic(HaBridge::TopicType::Command, COMPONENT, _object_id);
 
