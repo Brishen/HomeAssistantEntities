@@ -51,12 +51,12 @@ public:
     /**
      * @brief Defines a template to generate the payload to send to command_topic.
      */
-    std::string command_template = "";
+    std::string command_template = "{{ value }}";
 
     /**
      * @brief Defines a template to extract the value from the payload received on state_topic.
      */
-    std::string value_template = "";
+    std::string value_template = "{{ value }}";
 
     /**
      * @brief Defines the resolution of the values, i.e. the step.
