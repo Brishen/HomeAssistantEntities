@@ -70,8 +70,8 @@ public:
                                           .device_class = "",
                                           .force_update = false,
                                           .retain = false,
-                                          .command_template = "",
-                                          .value_template = "",
+                                          .command_template = "{{ value }}",
+                                          .value_template = "{{ value }}",
                                           .step = 1.0f};
 
   /**
