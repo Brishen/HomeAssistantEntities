@@ -85,7 +85,6 @@ private:
   std::string _child_object_id;
   Configuration _configuration;
 
-private:
   std::optional<bool> _on;
 };
 
