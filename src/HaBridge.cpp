@@ -25,6 +25,10 @@ void HaBridge::publishConfiguration(std::string component, std::string object_id
     doc["device"][kv.key()] = kv.value();
   }
 
+  // Add default for 'step'. This will be overridden if 'step' is present in specific_doc.
+  // 'command_template' and 'value_template' are handled by the loop below if present in specific_doc.
+  doc["step"] = 1.0f;
+
   for (auto kv : IJsonConstIteratorBegin(specific_doc)) {
     doc[kv.key()] = kv.value();
   }
