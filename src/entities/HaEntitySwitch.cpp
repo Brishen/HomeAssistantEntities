@@ -2,6 +2,9 @@
 #include <HaUtilities.h>
 #include <IJson.h>
 
+// Definition for the static default configuration
+HaEntitySwitch::Configuration HaEntitySwitch::_default;
+
 #define COMPONENT "switch"
 #define OBJECT_ID "switch"
 #define OBJECT_ID_ONOFF "onoff"

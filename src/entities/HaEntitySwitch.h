@@ -31,7 +31,7 @@ public:
     std::string value_template;
   };
 
-  inline static Configuration _default = {.retain = false, .command_template = "", .value_template = ""};
+  static Configuration _default;
 
   /**
    * @brief Construct a new Ha Entity Switch object
