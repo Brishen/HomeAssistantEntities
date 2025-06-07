@@ -47,10 +47,32 @@ public:
      * @brief If true, this tells Home Assistant to publish the message on the command topic with retain set to true.
      */
     bool retain = false;
+
+    /**
+     * @brief Defines a template to generate the payload to send to command_topic.
+     */
+    std::string command_template = "";
+
+    /**
+     * @brief Defines a template to extract the value from the payload received on state_topic.
+     */
+    std::string value_template = "";
+
+    /**
+     * @brief Defines the resolution of the values, i.e. the step.
+     */
+    float step = 1.0f;
   };
 
-  inline static Configuration _default = {
-      .min_value = 1.0, .max_value = 100.0, .unit = "", .device_class = "", .force_update = false, .retain = false};
+  inline static Configuration _default = {.min_value = 1.0,
+                                          .max_value = 100.0,
+                                          .unit = "",
+                                          .device_class = "",
+                                          .force_update = false,
+                                          .retain = false,
+                                          .command_template = "",
+                                          .value_template = "",
+                                          .step = 1.0f};
 
   /**
    * @brief Construct a new Ha Entity Number object

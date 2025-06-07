@@ -32,6 +32,15 @@ void HaEntityNumber::publishConfiguration() {
     doc["device_class"] = _configuration.device_class;
   }
 
+  doc["step"] = _configuration.step;
+
+  if (!_configuration.command_template.empty()) {
+    doc["command_template"] = _configuration.command_template;
+  }
+  if (!_configuration.value_template.empty()) {
+    doc["value_template"] = _configuration.value_template;
+  }
+
   doc["state_topic"] = _ha_bridge.getTopic(HaBridge::TopicType::State, COMPONENT, _object_id);
   doc["command_topic"] = _ha_bridge.getTopic(HaBridge::TopicType::Command, COMPONENT, _object_id);
 
