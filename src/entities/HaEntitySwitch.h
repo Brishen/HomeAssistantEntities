@@ -19,9 +19,19 @@ public:
      * @brief If true, this tells Home Assistant to publish the message on the command topic with retain set to true.
      */
     bool retain = false;
+
+    /**
+     * @brief Defines a template to generate the payload to send to command_topic.
+     */
+    std::string command_template;
+
+    /**
+     * @brief Defines a template to extract the value from the payload received on state_topic.
+     */
+    std::string value_template;
   };
 
-  inline static Configuration _default = {.retain = false};
+  inline static Configuration _default = {.retain = false, .command_template = "", .value_template = ""};
 
   /**
    * @brief Construct a new Ha Entity Switch object

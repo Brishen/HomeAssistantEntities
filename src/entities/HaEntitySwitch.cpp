@@ -28,6 +28,13 @@ void HaEntitySwitch::publishConfiguration() {
   doc["command_topic"] =
       _ha_bridge.getTopic(HaBridge::TopicType::Command, COMPONENT, _child_object_id, OBJECT_ID_ONOFF);
 
+  if (!_configuration.command_template.empty()) {
+    doc["command_template"] = _configuration.command_template;
+  }
+  if (!_configuration.value_template.empty()) {
+    doc["value_template"] = _configuration.value_template;
+  }
+
   _ha_bridge.publishConfiguration(COMPONENT, OBJECT_ID, _child_object_id, doc);
 }
 
